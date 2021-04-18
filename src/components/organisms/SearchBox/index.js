@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   searchBoxPopper: {
-    width: "350",
+    width: "350px !important",
     [theme.breakpoints.down("sm")]: {
-      width: "100%",
+      width: "83% !important",
     },
   },
 }));
