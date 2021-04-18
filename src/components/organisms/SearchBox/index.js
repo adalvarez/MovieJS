@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { makeStyles } from "@material-ui/core/styles";
 import throttle from "lodash/throttle";
+import classNames from "classnames";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Popper from "@material-ui/core/Popper";
 import SearchIcon from "@material-ui/icons/Search";
@@ -12,6 +13,12 @@ import MovieItem from "../../molecules/MovieItem";
 const useStyles = makeStyles((theme) => ({
   searchBox: {
     width: "18em",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+  },
+  searchBoxPopper: {
+    width: "350",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
@@ -62,17 +69,13 @@ const SearchBox = ({ selectEvent }) => {
       id="mjs-search-box-autocomplete"
       className={classes.searchBox}
       size="small"
-      PopperComponent={(props) => {
-        return (
-          <Popper
-            {...props}
-            style={{
-              width: 350,
-            }}
-            placement="bottom-start"
-          />
-        );
-      }}
+      PopperComponent={(props) => (
+        <Popper
+          {...props}
+          className={classNames(props.className, classes.searchBoxPopper)}
+          placement="bottom-start"
+        />
+      )}
       getOptionLabel={(option) =>
         typeof option === "string" ? option : option.title
       }
