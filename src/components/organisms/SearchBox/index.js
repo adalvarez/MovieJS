@@ -68,6 +68,7 @@ const SearchBox = ({ selectEvent }) => {
     <Autocomplete
       id="mjs-search-box-autocomplete"
       className={classes.searchBox}
+      freeSolo={true}
       size="small"
       PopperComponent={(props) => (
         <Popper
