@@ -59,7 +59,6 @@ const Home = () => {
   };
 
   const filterMoviesByInput = (input) => {
-    console.log(`Filtering by ${input}`);
     if (!input) {
       // Input empty will load LS data back.
       setMoviesRepository(extractLocalStorage());
@@ -69,7 +68,6 @@ const Home = () => {
           (Movie) =>
             Movie.title.toLowerCase().indexOf(input.toLowerCase()) !== -1
         );
-        console.log("newRepository", newRepository);
         return newRepository;
       });
     }
